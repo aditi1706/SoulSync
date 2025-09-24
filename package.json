@@ -1,0 +1,23 @@
+{
+  "name": "soulsync-openai-backend",
+  "version": "1.0.0",
+  "description": "Your daily wellness journey with an OpenAI-powered companion.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^1.20.0",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.6.1",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.1",
+    "openai": "^4.104.0"
+  }
+}
