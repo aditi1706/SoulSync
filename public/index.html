@@ -3,157 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoulSync | Your Daily Wellness Journey</title> 
-    <link rel="stylesheet" href="style.css">
+    <title>Welcome - SoulSync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to the new CSS file -->
+    <link rel="stylesheet" href="login-style.css">
 </head>
-<body class="dark-theme">
+<body class="text-slate-200 flex items-center justify-center min-h-screen p-4">
 
-    <header>
-        <nav class="navbar">
-            <div class="nav-brand">
-                <a href="#" data-page="home">SoulSync ✨</a>
+    <div class="w-full max-w-md">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen">
+            <div class="auth-card rounded-2xl p-8 md:p-10">
+                <h1 class="text-2xl font-bold text-center text-white mb-2">SoulSync ✨</h1>
+                <p class="text-slate-400 text-center mb-8">Welcome back to your wellness journey.</p>
+                <form id="login-form">
+                    <div class="space-y-6">
+                        <div>
+                            <label for="login-email" class="text-sm font-medium text-slate-300">Email</label>
+                            <input type="email" id="login-email" required class="form-input w-full mt-2 p-3 rounded-lg text-white" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="login-password" class="text-sm font-medium text-slate-300">Password</label>
+                            <input type="password" id="login-password" required class="form-input w-full mt-2 p-3 rounded-lg text-white" placeholder="••••••••">
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-btn w-full text-white font-semibold p-3 rounded-lg mt-8">Log In</button>
+                </form>
+                 <p class="text-center text-sm text-slate-400 mt-8">
+                    Don't have an account? <a href="#" id="show-signup" class="font-semibold text-indigo-400 hover:text-indigo-300">Sign Up</a>
+                </p>
             </div>
-            <ul class="nav-links">
-                <li><a href="#" data-page="home" class="active-link">Home</a></li>
-                <li><a href="#" data-page="dashboard">Dashboard</a></li>
-                <li><a href="#" data-page="goals">My Daily Goals</a></li>
-                <li><a href="#" data-page="rewards">My Rewards</a></li>
-                <li><a href="#" data-page="quotes">Quotes</a></li>
-                <li><a href="#" data-page="resources">Resources</a></li>
-                <li><a href="#" data-page="team">Our Team</a></li>
-            </ul>
-        </nav>
-    </header>
+        </div>
 
-    <main>
-        <section id="home-page" class="page active">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <p class="subtitle-pill">India's leading platform for personal well-being</p>
-                    <h1>SoulSync</h1> 
-                    <p>A new era of mental clarity and personal growth.</p>
-                    <button id="start-chat-btn" class="btn">Start Your Journey</button>
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> All Systems Live
+        <!-- Sign Up Screen -->
+        <div id="signup-screen" class="screen hidden">
+             <div class="auth-card rounded-2xl p-8 md:p-10">
+                <h1 class="text-2xl font-bold text-center text-white mb-2">Create Your Account</h1>
+                <p class="text-slate-400 text-center mb-8">Start your new era of mental clarity.</p>
+                <form id="signup-form">
+                    <div class="space-y-6">
+                         <div>
+                            <label for="signup-name" class="text-sm font-medium text-slate-300">Full Name</label>
+                            <input type="text" id="signup-name" required class="form-input w-full mt-2 p-3 rounded-lg text-white" placeholder="Rohan Sharma">
+                        </div>
+                        <div>
+                            <label for="signup-email" class="text-sm font-medium text-slate-300">Email</label>
+                            <input type="email" id="signup-email" required class="form-input w-full mt-2 p-3 rounded-lg text-white" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="signup-password" class="text-sm font-medium text-slate-300">Password</label>
+                            <input type="password" id="signup-password" required class="form-input w-full mt-2 p-3 rounded-lg text-white" placeholder="Minimum 8 characters">
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-btn w-full text-white font-semibold p-3 rounded-lg mt-8">Create Account</button>
+                </form>
+                 <p class="text-center text-sm text-slate-400 mt-8">
+                    Already have an account? <a href="#" id="show-login" class="font-semibold text-indigo-400 hover:text-indigo-300">Log In</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Onboarding Step 1: Info Screen -->
+        <div id="info-screen" class="screen hidden">
+             <div class="auth-card rounded-2xl p-8 md:p-10">
+                <div class="mb-8">
+                    <p class="text-sm text-indigo-400 font-medium">Step 1 of 2</p>
+                     <div class="w-full bg-slate-700 rounded-full h-2 mt-2">
+                        <div class="progress-bar-inner bg-indigo-500 h-2 rounded-full" style="width: 25%"></div>
                     </div>
                 </div>
+                <h1 class="text-2xl font-bold text-white mb-2">Tell Us About Yourself</h1>
+                <p class="text-slate-400 mb-8">This helps us personalize your journey.</p>
+                <form id="info-form">
+                     <div class="space-y-6">
+                         <div>
+                            <label for="university" class="text-sm font-medium text-slate-300">University / College Name</label>
+                            <input type="text" id="university" required class="form-input w-full mt-2 p-3 rounded-lg text-white" placeholder="e.g., University of Delhi">
+                        </div>
+                        <div>
+                            <label for="study-field" class="text-sm font-medium text-slate-300">Field of Study</label>
+                            <input type="text" id="study-field" required class="form-input w-full mt-2 p-3 rounded-lg text-white" placeholder="e.g., Computer Science">
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-btn w-full text-white font-semibold p-3 rounded-lg mt-8">Next</button>
+                </form>
             </div>
-        </section>
+        </div>
 
-        <section id="dashboard-page" class="page">
-    <div class="content-container">
-        <h2>Your Wellness Dashboard</h2>
-        <div class="dashboard-grid">
-            <div class="dash-card card-mood">
-                <h3>Mood Tracker</h3>
-                <p>You've completed goals on <strong>5 days</strong> this week!</p>
-                <span class="card-emoji">😊</span>
-            </div>
-            <div class="dash-card card-sleep">
-                <h3>Sleep Tracker (Sample)</h3>
-                <div class="chart-container">
-                    <canvas id="sleepChart"></canvas>
+        <!-- Onboarding Step 2: Questionnaire Screen -->
+        <div id="questionnaire-screen" class="screen hidden">
+            <div class="auth-card rounded-2xl p-8 md:p-10">
+                <div class="mb-8">
+                    <p class="text-sm text-indigo-400 font-medium">Step 2 of 2</p>
+                     <div class="w-full bg-slate-700 rounded-full h-2 mt-2">
+                        <div id="questionnaire-progress" class="progress-bar-inner bg-indigo-500 h-2 rounded-full" style="width: 50%"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="dash-card card-trends">
-                <h3>Weekly Goal Trends</h3>
-                <div class="chart-container">
-                    <canvas id="trendsChart"></canvas>
-                </div>
-            </div>
-            <div class="dash-card card-activity">
-                <h3>Activity Breakdown (Sample)</h3>
-                <div class="chart-container">
-                    <canvas id="activityChart"></canvas>
+                <div id="question-container">
+                    <!-- Questions will be injected here by JS -->
                 </div>
             </div>
         </div>
+
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen hidden">
+             <div class="auth-card rounded-2xl p-8 md:p-10 text-center">
+                 <div class="text-6xl mb-4">🎉</div>
+                 <h1 class="text-2xl font-bold text-white mb-2">You're All Set!</h1>
+                 <p class="text-slate-400 mb-8">Thank you for sharing. We're now creating your personalized wellness plan.</p>
+                 <button id="go-to-dashboard" class="primary-btn w-full text-white font-semibold p-3 rounded-lg mt-8">Go to Dashboard</button>
+             </div>
+        </div>
     </div>
-</section>
 
-        <section id="chat-page" class="page">
-            <div class="chat-container">
-                <div class="chat-header"><h3>Chat with your Listener</h3></div>
-                <div id="chat-window">
-                    <div class="chat-message bot-message"><p>Hello! I'm here to listen. Feel free to share whatever is on your mind.</p></div>
-                </div>
-                <form id="chat-input-form">
-                    <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off">
-                    <button type="submit" class="btn">Send</button>
-                </form>
-            </div>
-        </section>
+    <!-- Link to the new JS file -->
+    <script src="login-script.js"></script>
 
-        <section id="goals-page" class="page">
-            <div class="content-container">
-                <h2>My Daily Goals</h2>
-                <div id="streak-counter">
-                    <span class="streak-emoji">🔥</span>
-                    <span id="streak-number">0 Day Streak</span>
-                </div>
-                <div class="goals-container">
-                    <form id="goal-form">
-                        <input type="text" id="goal-input" placeholder="e.g., Go for a 10-minute walk" autocomplete="off">
-                        <button type="submit" class="btn">Add Goal</button>
-                    </form>
-                    <ul id="goals-list"></ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="rewards-page" class="page">
-            <div class="content-container">
-                <h2>My Rewards</h2>
-                <p class="subtitle">Celebrate your progress! Unlock new badges by building a consistent wellness routine.</p>
-                <div class="card-grid">
-                    <div class="badge-card locked" id="badge-day1"><div class="badge-emoji">🌱</div><h3>Day 1 Sprout</h3><p>You've completed your first goal!</p></div>
-                    <div class="badge-card locked" id="badge-day3"><div class="badge-emoji">🌳</div><h3>3-Day Cultivator</h3><p>Three consecutive days of progress!</p></div>
-                    <div class="badge-card locked" id="badge-day7"><div class="badge-emoji">🌟</div><h3>7-Day Star</h3><p>You've completed a full week!</p></div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="quotes-page" class="page">
-            <div class="content-container">
-                 <h2>A Moment of Inspiration</h2>
-                 <div class="quote-container">
-                    <blockquote id="quote-text">...</blockquote>
-                    <figcaption id="quote-author">...</figcaption>
-                 </div>
-                 <button id="new-quote-btn" class="btn">New Quote</button>
-            </div>
-        </section>
-
-        <section id="resources-page" class="page">
-            <div class="content-container">
-                <h2>Tools for Your Well-being</h2>
-                <div class="card-grid">
-                    <div class="info-card"><h3>Mindful Journaling</h3><p>Expressing thoughts can bring clarity. Try writing freely for five minutes.</p></div>
-                    <div class="info-card"><h3>The 5-4-3-2-1 Method</h3><p>A grounding technique for anxiety. Name 5 things you see, 4 you feel, 3 you hear, 2 you smell, and 1 you taste.</p></div>
-                    <div class="info-card"><h3>Mindful Observation</h3><p>Pick an object and observe it for a minute. Notice its color, texture, and shape. This anchors you in the present.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="team-page" class="page">
-            <div class="content-container">
-                <h2>Meet the Innovators</h2>
-                <div class="card-grid">
-                    <div class="team-card"><h3>Aditi Gupta</h3></div>
-                    <div class="team-card"><h3>Aditi Niranjan</h3></div>
-                    <div class="team-card"><h3>Jahnavi Pandey</h3></div>
-                    <div class="team-card"><h3>Deepika Singh</h3></div>
-                    <div class="team-card"><h3>Deepesh Jha</h3></div>
-                    <div class="team-card"><h3>Jagrat Bhatt</h3></div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
 </body>
 </html>
